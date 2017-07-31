@@ -2,20 +2,18 @@ var fs = require('fs');
 
 var commands = {
 
-    pwd: function() {
+    pwd: function(fileName) {
         process.stdout.write(process.cwd());
         process.stdout.write('\nprompt > ');
-
-
     },
 
-    date: function() {
+    date: function(fileName) {
         process.stdout.write(Date());
         process.stdout.write('\nprompt > ');
 
     },
 
-    ls: function() {
+    ls: function(fileName) {
         fs.readdir('.', function(err, files) {
             if (err) throw err;
             files.forEach(function(file) {
@@ -25,9 +23,25 @@ var commands = {
         });
     },
 
-    echo: function(args) {
-        process.stdout.write(args);
+    echo: function(fileName) {
+        process.stdout.write(fileName);
         process.stdout.write('\nprompt > ');
+
+    },
+
+    cat: function(fileName) {
+        fs.readFile(fileName, 'utf8', function (err, data)  {
+            if (err) throw err;
+            console.log(data);
+        });
+        process.stdout.write('\nprompt > ');
+    }, 
+
+    head: function(fileName) {
+
+    },
+
+    tail: function(fileName) {
 
     }
 
