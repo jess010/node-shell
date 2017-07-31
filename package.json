@@ -1,0 +1,22 @@
+{
+  "name": "shell",
+  "version": "1.0.0",
+  "description": "'Jess and I working through the Node shell workshop!'",
+  "main": "bash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jess010/node-shell.git"
+  },
+  "author": "Jess and Antonio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jess010/node-shell/issues"
+  },
+  "homepage": "https://github.com/jess010/node-shell#readme",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}

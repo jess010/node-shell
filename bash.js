@@ -1,14 +1,23 @@
 //console.log(Object.keys(process));
+var commands = require('./commands');
 
 process.stdout.write('prompt > ');
 
 process.stdin.on('data', function(data) {
-  var cmd = data.toString().trim(); // removes newline
-  if (cmd === "pwd") {
-    process.stdout.write(process.cwd())
-  } else if (cmd === "date") {
-    process.stdout.write(Date());
-  }
-  process.stdout.write('\nprompt > ');
-  
+    var cmd = data.toString().trim(); // removes newline
+
+    var echoArgs = cmd.split(' ').slice(1).join(' ');
+
+    console.log(echoArgs);
+
+    if (cmd === "pwd") {
+        commands.pwd();
+    } else if (cmd === "date") {
+        commands.date();
+    } else if (cmd === "ls") {
+        commands.ls();
+    } else if (cmd === "echo" + ' ' + echoArgs) {
+        commands.echo(echoArgs);
+    }
+
 });
